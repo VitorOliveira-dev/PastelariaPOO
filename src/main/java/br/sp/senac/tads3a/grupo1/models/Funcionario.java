@@ -1,59 +1,25 @@
 package br.sp.senac.tads3a.grupo1.models;
 
-public class Funcionario {
+import java.util.Date;
+
+public class Funcionario extends Pessoa{
        
-       private String nome;
-       private String sobrenome;
-       private int idade;
-       private String CPF;      
-       private float salario;
 
-    public Funcionario(String nome, String sobrenome, int idade, String CPF, float salario) {
-        this.nome = nome;
-        this.sobrenome = sobrenome;
-        this.idade = idade;
-        this.CPF = CPF;
-        this.salario = salario;
+       private int funcionarioId;
+
+    public Funcionario(String nome, Date dataNascimento, String CPF, int funcionarioId) {
+        super(nome, dataNascimento, CPF);
+        this.funcionarioId = funcionarioId;
     }
 
-    public String getNome() {
-        return nome;
+    public int getFuncionarioId() {
+        return funcionarioId;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setFuncionarioId(int funcionarioId) {
+        this.funcionarioId = funcionarioId;
     }
 
-    public String getSobrenome() {
-        return sobrenome;
-    }
-
-    public void setSobrenome(String sobrenome) {
-        this.sobrenome = sobrenome;
-    }
-
-    public int getIdade() {
-        return idade;
-    }
-
-    public void setIdade(int idade) {
-        this.idade = idade;
-    }
-
-    public String getCPF() {
-        return CPF;
-    }
-
-    public void setCPF(String CPF) {
-        this.CPF = CPF;
-    }
-
-    public float getSalario() {
-        return salario;
-    }
-
-    public void setSalario(float salario) {
-        this.salario = salario;
-    }
+    
        
 }
