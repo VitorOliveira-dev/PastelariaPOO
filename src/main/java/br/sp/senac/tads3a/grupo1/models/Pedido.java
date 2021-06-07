@@ -7,6 +7,7 @@ public class Pedido {
     private float valorUnitario;
     private int quantidade;
     private float valorTotal;
+   
     
     public Pedido(int pedidoId, float valorUnitario, int quantidade, float valorTotal){
         this.pedidoId = pedidoId;
