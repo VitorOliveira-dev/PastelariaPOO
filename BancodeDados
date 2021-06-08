@@ -12,7 +12,9 @@ create table funcionario
 (funcionarioID int primary key auto_increment,
 nome varchar(80) not null,
 dataNascimento date null,
-cpf varchar(11) not null
+cpf varchar(11) not null,
+departamento varchar (40) not null,
+salario  float not null 
 );
 create table produto(
 produtoID int primary key auto_increment,
@@ -35,9 +37,7 @@ valorUnitario float,
 quantidade int not null,
 valorTotal int not null,
 produtoID int,
-clienteID int,
 vendaID int,
-foreign key (clienteid) references cliente (clienteid),
 foreign key (produtoID) references produto (produtoID),
 foreign key (vendaID) references venda (vendaID)
 );
