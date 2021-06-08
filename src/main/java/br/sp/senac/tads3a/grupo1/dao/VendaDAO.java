@@ -6,6 +6,7 @@
 package br.sp.senac.tads3a.grupo1.dao;
 
 import br.sp.senac.tads3a.grupo1.models.Cliente;
+import br.sp.senac.tads3a.grupo1.models.Funcionario;
 import br.sp.senac.tads3a.grupo1.models.Pedido;
 import br.sp.senac.tads3a.grupo1.models.Produto;
 import br.sp.senac.tads3a.grupo1.models.Venda;
@@ -22,8 +23,8 @@ import java.util.ArrayList;
  * @author paulo
  */
 public class VendaDAO {
-    
-        public static boolean vendaVender(Venda venda) {
+
+    public static boolean vendaVender(Venda venda) {
 
         boolean retorno = false;
         Connection conexao = null;
@@ -37,7 +38,7 @@ public class VendaDAO {
                     Statement.RETURN_GENERATED_KEYS);
 
             comandoSQL.setFloat(1, venda.getValorTotal());
-            comandoSQL.setInt(2,  venda.getCliente().getClienteId());
+            comandoSQL.setInt(2, venda.getCliente().getClienteId());
 
             int linhasAfetadas = comandoSQL.executeUpdate();
 
@@ -78,7 +79,7 @@ public class VendaDAO {
                 if (comandoSQL != null) {
                     comandoSQL.close();
 
-                   Conexao.fecharConexao();
+                    Conexao.fecharConexao();
                 }
             } catch (SQLException e) {
             }
@@ -87,7 +88,51 @@ public class VendaDAO {
         return retorno;
     }
 
-  /**  public static ArrayList<Cliente>  vendaBuscarCliente(String pNome, int Id) {
+    public static ArrayList<Produto> vendaBuscarProduto() {
+
+        ArrayList<Produto> listaProdutos = new ArrayList<>();
+        Connection conexao = null;
+        PreparedStatement comandoSQL = null;
+        ResultSet rs = null;
+
+        try {
+            conexao = Conexao.abrirConexao();
+            comandoSQL = conexao.prepareStatement("SELECT * FROM produto");
+
+            rs = comandoSQL.executeQuery();
+
+            while (rs.next()) {
+                Produto p = new Produto();
+
+                p.setDescricao(rs.getString("descricao"));
+                p.setProdutoId(rs.getInt("produtoid"));
+
+                listaProdutos.add(p);
+            }
+
+        } catch (ClassNotFoundException | SQLException e) {
+            listaProdutos = null;
+            System.out.println("ERROR " + e);
+        } finally {
+
+            //Libero os recursos da memória
+            try {
+                if (comandoSQL != null) {
+                    comandoSQL.close();
+                }
+
+                Conexao.fecharConexao();
+
+            } catch (SQLException ex) {
+                System.out.println("ERROR " + ex);
+            }
+        }
+
+        return listaProdutos;
+
+    }
+
+    public static ArrayList<Cliente> vendaBuscarCliente() {
 
         ArrayList<Cliente> listaClientes = new ArrayList<>();
         Connection conexao = null;
@@ -96,20 +141,14 @@ public class VendaDAO {
 
         try {
             conexao = Conexao.abrirConexao();
-            comandoSQL = conexao.prepareStatement("SELECT * FROM cliente WHERE id LIKE ? OR nome LIKE ?");
-            comandoSQL.setInt(1, Id);
-            comandoSQL.setString(2, pNome);
+            comandoSQL = conexao.prepareStatement("SELECT * FROM cliente");
 
             rs = comandoSQL.executeQuery();
 
             while (rs.next()) {
-                Cliente obj = new Cliente();
+                Cliente c = new Cliente(rs.getString("nome"), rs.getDate("nasc"), rs.getString("cpf"), rs.getInt("clienteid"));
 
-                obj.setCodCliente(rs.getInt("cod_cliente"));
-                obj.setNomeCliente(rs.getString("nome"));
-                obj.setCPF(rs.getString("CPF"));
-
-                listaClientes.add(obj);
+                listaClientes.add(c);
             }
 
         } catch (ClassNotFoundException | SQLException e) {
@@ -123,7 +162,7 @@ public class VendaDAO {
                     comandoSQL.close();
                 }
 
-               Conexao.fecharConexao();
+                Conexao.fecharConexao();
 
             } catch (SQLException ex) {
                 System.out.println("ERROR " + ex);
@@ -134,33 +173,28 @@ public class VendaDAO {
 
     }
 
-    public static ArrayList<Produto> vendaBuscarProduto(String pCodigo, String pInstrumento) {
+    public static ArrayList<Funcionario> vendaBuscarFuncionario() {
 
-        ArrayList<Produto> listaProdutos = new ArrayList<>();
+        ArrayList<Funcionario> listaFuncionarios = new ArrayList<>();
         Connection conexao = null;
         PreparedStatement comandoSQL = null;
         ResultSet rs = null;
 
         try {
             conexao = Conexao.abrirConexao();
-            comandoSQL = conexao.prepareStatement("SELECT * FROM produto WHERE cod_produto LIKE ? OR instrumento LIKE ?");
-            comandoSQL.setString(1, pCodigo);
-            comandoSQL.setString(2, pInstrumento);
+            comandoSQL = conexao.prepareStatement("SELECT * FROM funcionario WHERE departamento = venda");
 
             rs = comandoSQL.executeQuery();
 
             while (rs.next()) {
-                Produto obj = new Produto();
-                obj.setCodProduto(rs.getInt("cod_produto"));
-                obj.setInstrumento(rs.getString("instrumento"));
-                obj.setValor(rs.getFloat("valor"));
-                obj.setQuantidade(rs.getInt("qtd"));
+                Funcionario f = new Funcionario(rs.getString("nome"), rs.getDate("nascimento"), rs.getString("cpf"), rs.getInt("funcionarioid"), rs.getString("departamento"));
 
-                listaProdutos.add(obj);
+                listaFuncionarios.add(f);
             }
 
-        } catch (Exception e) {
-            listaProdutos = null;
+        } catch (ClassNotFoundException | SQLException e) {
+            listaFuncionarios = null;
+            System.out.println("ERROR " + e);
         } finally {
 
             //Libero os recursos da memória
@@ -169,17 +203,15 @@ public class VendaDAO {
                     comandoSQL.close();
                 }
 
-                GerenciadorConexao.fecharConexao();
+                Conexao.fecharConexao();
 
             } catch (SQLException ex) {
                 System.out.println("ERROR " + ex);
             }
         }
 
-        return listaProdutos;
+        return listaFuncionarios;
 
-    }*/
-    
-    
+    }
+
 }
- 
