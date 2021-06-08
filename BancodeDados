@@ -4,20 +4,19 @@ use pastelaria;
 create table cliente(
 clienteid int primary key auto_increment,
 nome varchar(80) not null,
-dataNascimento date null,
+nasc date null,
 cpf varchar (11) not null 
 );
 
 create table funcionario 
-(funcionarioID int primary key auto_increment,
+(funcionarioid int primary key auto_increment,
 nome varchar(80) not null,
-dataNascimento date null,
+nasc date null,
 cpf varchar(11) not null,
-departamento varchar (40) not null,
-salario  float not null 
+salario float not null
 );
 create table produto(
-produtoID int primary key auto_increment,
+produtoid int primary key auto_increment,
 descricao varchar (250) not null,
 preco float,
 valorUnitario float,
@@ -25,19 +24,13 @@ quantidade int not null
 );
 
 create table venda (
-vendaID int primary key auto_increment,
+vendaid int primary key auto_increment,
 clienteid int,
+funcionarioid int,
+produtoid int,
 datavenda date not null,
 valortotal float not null,
+foreign key (funcionarioid) references funcionario (funcionarioid),
+foreign key (produtoid) references produto (produtoid),
 foreign key (clienteid) references cliente (clienteid)
-);
-create table pedido(
-pedidoID int primary key auto_increment,
-valorUnitario float,
-quantidade int not null,
-valorTotal int not null,
-produtoID int,
-vendaID int,
-foreign key (produtoID) references produto (produtoID),
-foreign key (vendaID) references venda (vendaID)
 );
