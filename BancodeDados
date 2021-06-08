@@ -13,7 +13,8 @@ create table funcionario
 nome varchar(80) not null,
 dataNascimento date null,
 cpf varchar(11) not null,
-departamento varchar (40) not null
+departamento varchar (40) not null,
+salario  float not null 
 );
 create table produto(
 produtoID int primary key auto_increment,
