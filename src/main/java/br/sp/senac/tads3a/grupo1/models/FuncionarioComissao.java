@@ -7,7 +7,6 @@ public class FuncionarioComissao extends Funcionario{
     
     private float taxaComissao;
     private float vendas;
-    private float salario;
     
     public FuncionarioComissao(String nome, Date dataNascimento, String CPF, int funcionarioId, float taxaComissao, float vendas,String departamento){
         super(nome, dataNascimento, CPF, funcionarioId, departamento);

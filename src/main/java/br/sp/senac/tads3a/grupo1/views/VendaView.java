@@ -5,17 +5,36 @@
  */
 package br.sp.senac.tads3a.grupo1.views;
 
+import br.sp.senac.tads3a.grupo1.controllers.VendaController;
+import br.sp.senac.tads3a.grupo1.models.Cliente;
+import br.sp.senac.tads3a.grupo1.models.Funcionario;
+import br.sp.senac.tads3a.grupo1.models.Produto;
+import java.util.ArrayList;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 
 public class VendaView extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VendaView
-     */
     public VendaView() {
         initComponents();
-        jcbCliente.addItem("Pastel de Teste");
+
+        ArrayList<Produto> produtos = VendaController.buscarProdutos();
+        for (Produto produto : produtos) {
+            jcbPastel.addItem(produto.getDescricao());
+        }
+        AutoCompleteDecorator.decorate(jcbPastel);
+
+        ArrayList<Cliente> clientes = VendaController.buscarClientes();
+        for (Cliente cliente : clientes) {
+            jcbCliente.addItem(cliente.getNome());
+        }
         AutoCompleteDecorator.decorate(jcbCliente);
+
+        ArrayList<Funcionario> funcionarios = VendaController.buscarFuncionarios();
+        for (Funcionario funcionario : funcionarios) {
+            jcbFuncionario.addItem(funcionario.getNome());
+        }
+        AutoCompleteDecorator.decorate(jcbFuncionario);
+
     }
 
     /**
@@ -37,7 +56,7 @@ public class VendaView extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jcbPastel = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
-        jcbCliente1 = new javax.swing.JComboBox<>();
+        jcbFuncionario = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -93,8 +112,8 @@ public class VendaView extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Unispace", 0, 14)); // NOI18N
         jLabel6.setText("Selecione o vendedor *");
 
-        jcbCliente1.setEditable(true);
-        jcbCliente1.setOpaque(false);
+        jcbFuncionario.setEditable(true);
+        jcbFuncionario.setOpaque(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -113,7 +132,7 @@ public class VendaView extends javax.swing.JFrame {
                                     .addComponent(jLabel5))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jcbCliente1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jcbFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel6)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jcbPastel, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -137,7 +156,7 @@ public class VendaView extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jcbCliente1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jcbFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(63, 63, 63)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21)
@@ -212,7 +231,7 @@ public class VendaView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JComboBox<String> jcbCliente;
-    private javax.swing.JComboBox<String> jcbCliente1;
+    private javax.swing.JComboBox<String> jcbFuncionario;
     private javax.swing.JComboBox<String> jcbPastel;
     // End of variables declaration//GEN-END:variables
 }
