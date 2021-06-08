@@ -18,6 +18,10 @@ public Produto(String descricao, float preco, int produtoId, float valorUnitario
     this.quantidade = quantidade;
 }
 
+    public Produto() {
+
+    }
+
     public String getDescricao() {
         return descricao;
     }
