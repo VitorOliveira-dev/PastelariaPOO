@@ -7,9 +7,10 @@ public class FuncionarioComissao extends Funcionario{
     
     private float taxaComissao;
     private float vendas;
+    private float salario;
     
-    public FuncionarioComissao(String nome, Date dataNascimento, String CPF, int funcionarioId, float taxaComissao, float vendas){
-        super(nome, dataNascimento, CPF, funcionarioId);
+    public FuncionarioComissao(String nome, Date dataNascimento, String CPF, int funcionarioId, float taxaComissao, float vendas,String departamento){
+        super(nome, dataNascimento, CPF, funcionarioId, departamento);
         this.taxaComissao = taxaComissao;
         this.vendas = vendas;
     }
@@ -30,8 +31,11 @@ public class FuncionarioComissao extends Funcionario{
         this.vendas = vendas;
     }
     
+    public float getSalario(){
+     return getTaxaComissao() * getVendas();
     
-    public double ganhos(){
-    return getTaxaComissao() * getVendas();
-}
+    }
+    
+    
+
 }

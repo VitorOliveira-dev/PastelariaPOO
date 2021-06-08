@@ -7,13 +7,16 @@ public class Pedido {
     private float valorUnitario;
     private int quantidade;
     private float valorTotal;
-   
+    private Produto produto;
+   private Venda venda ;
     
-    public Pedido(int pedidoId, float valorUnitario, int quantidade, float valorTotal){
+    public Pedido(int pedidoId, float valorUnitario, int quantidade, float valorTotal, Produto produto,Venda venda){
         this.pedidoId = pedidoId;
         this.valorUnitario = valorUnitario;
         this.quantidade = quantidade;
         this.valorTotal = valorTotal;
+        this.produto=produto;
+        this.venda = venda;
     }
 
     public int getPedidoId() {
@@ -46,6 +49,22 @@ public class Pedido {
 
     public void setValorTotal(float valorTotal) {
         this.valorTotal = valorTotal;
+    }
+
+    public Produto getProduto() {
+        return produto;
+    }
+
+    public void setProduto(Produto produto) {
+        this.produto = produto;
+    }
+
+    public Venda getVenda() {
+        return venda;
+    }
+
+    public void setVenda(Venda venda) {
+        this.venda = venda;
     }
     
     
