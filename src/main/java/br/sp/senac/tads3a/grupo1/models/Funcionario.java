@@ -12,6 +12,14 @@ public class Funcionario extends Pessoa {
         this.funcionarioId = funcionarioId;
     }
 
+    public int getFuncionarioId() {
+        return funcionarioId;
+    }
+
+    public void setFuncionarioId(int funcionarioId) {
+        this.funcionarioId = funcionarioId;
+    }
+
     public String getDepartamento() {
         return departamento;
     }
@@ -20,12 +28,6 @@ public class Funcionario extends Pessoa {
         this.departamento = departamento;
     }
 
-    public int getFuncionarioId() {
-        return funcionarioId;
-    }
 
-    public void setFuncionarioId(int funcionarioId) {
-        this.funcionarioId = funcionarioId;
-    }
 
 }

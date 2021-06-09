@@ -198,7 +198,7 @@ public class VendaView extends javax.swing.JFrame {
         //Transforma o valor em inteiro
         int id_funcionario = Integer.parseInt(id_funcionarioS.substring(0, id_funcionarioS.indexOf(" ")));
 
-        float valor = Float.parseFloat(id_produtoS.substring(id_produtoS.indexOf("$"), id_produtoS.length()).trim());
+        float valor = Float.parseFloat(id_produtoS.substring(id_produtoS.indexOf("$")+1, id_produtoS.length()).trim());
 
         VendaController.vendaVender(valor, id_cliente, id_produto, id_funcionario);
 
