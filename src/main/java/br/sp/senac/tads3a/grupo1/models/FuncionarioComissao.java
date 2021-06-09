@@ -14,9 +14,14 @@ public class FuncionarioComissao extends Funcionario{
         this.vendas = vendas;
     }
 
+
+    public float getSalario(){
+     return getTaxaComissao() * getVendas();
+    
+    }
+
     public float getTaxaComissao() {
         return taxaComissao;
-        
     }
 
     public void setTaxaComissao(float taxaComissao) {
@@ -29,11 +34,6 @@ public class FuncionarioComissao extends Funcionario{
 
     public void setVendas(float vendas) {
         this.vendas = vendas;
-    }
-    
-    public float getSalario(){
-     return getTaxaComissao() * getVendas();
-    
     }
     
     

@@ -19,6 +19,9 @@ public class FuncionarioAssalariado extends Funcionario{
     public void setSalario(float salario) {
         this.salario = salario;
     }
+
+
+
     
     
 }

@@ -30,14 +30,6 @@ public Venda(int vendaId, Date dataVenda, float valorTotal, int clienteid,int fu
   public Venda(){
     }
 
-    public ArrayList<Pedido> getListar() {
-        return listar;
-    }
-
-    public void setListar(ArrayList<Pedido> listar) {
-        this.listar = listar;
-    }
-
     public int getVendaId() {
         return vendaId;
     }
@@ -93,6 +85,15 @@ public Venda(int vendaId, Date dataVenda, float valorTotal, int clienteid,int fu
     public void setFuncionarioComissao(FuncionarioComissao funcionarioComissao) {
         this.funcionarioComissao = funcionarioComissao;
     }
+
+    public ArrayList<Pedido> getListar() {
+        return listar;
+    }
+
+    public void setListar(ArrayList<Pedido> listar) {
+        this.listar = listar;
+    }
+
 
 
    
