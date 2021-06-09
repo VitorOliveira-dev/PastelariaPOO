@@ -7,6 +7,7 @@ package br.sp.senac.tads3a.grupo1.dao;
 
 import br.sp.senac.tads3a.grupo1.models.Cliente;
 import br.sp.senac.tads3a.grupo1.models.Funcionario;
+import br.sp.senac.tads3a.grupo1.models.FuncionarioComissao;
 import br.sp.senac.tads3a.grupo1.models.Pedido;
 import br.sp.senac.tads3a.grupo1.models.Produto;
 import br.sp.senac.tads3a.grupo1.models.Venda;
@@ -46,8 +47,13 @@ public class VendaDAO {
 
             if (linhasAfetadas > 0) {
                 retorno = true;
+
+
+            comandoSQL = conexao.prepareStatement("update funcionario set salario =  salario + ? where funcionarioid = ?" +
+                    Statement.RETURN_GENERATED_KEYS);
                 
-                
+                comandoSQL.setFloat(1, venda.getFuncionarioComissao().getTaxaComissao());
+                comandoSQL.setInt (2, venda.getFuncionario().getFuncionarioId());
             } else {
                 retorno = false;
             }
