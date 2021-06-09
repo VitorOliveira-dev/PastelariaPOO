@@ -63,7 +63,7 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jcbPastel" min="-2" pref="205" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="btnConfirm" min="-2" pref="201" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jPanel2" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -98,9 +98,9 @@
                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="jcbPastel" min="-2" pref="38" max="-2" attributes="0"/>
-                      <Component id="btnConfirm" min="-2" pref="38" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jcbPastel" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                      <Component id="btnConfirm" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="116" max="32767" attributes="0"/>
               </Group>
