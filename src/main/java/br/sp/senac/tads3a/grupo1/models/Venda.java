@@ -10,17 +10,38 @@ private int vendaId;
 private Date dataVenda;
 private float valorTotal;
 private Cliente cliente;
+private Funcionario funcionario;
+private Produto produto;
+
 ArrayList<Pedido> listar;
 
 
  
 
-public Venda(int vendaId, Date dataVenda, float valorTotal, Cliente cliente){
+public Venda(int vendaId, Date dataVenda, float valorTotal, Cliente cliente,Funcionario funcionario, Produto produto){
     this.vendaId = vendaId;
     this.dataVenda = dataVenda;
     this.valorTotal = valorTotal;
     this.cliente= cliente;
+    this.funcionario = funcionario;
+    this.produto = produto;
 }
+
+    public Produto getProduto() {
+        return produto;
+    }
+
+    public void setProduto(Produto produto) {
+        this.produto = produto;
+    }
+
+    public Funcionario getFuncionario() {
+        return funcionario;
+    }
+
+    public void setFuncionario(Funcionario funcionario) {
+        this.funcionario = funcionario;
+    }
 
     public Cliente getCliente() {
         return cliente;

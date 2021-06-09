@@ -26,11 +26,10 @@ public class ClienteDAO {
         try {
 
             conexao = Conexao.abrirConexao();
-            instrucaoSQL = conexao.prepareStatement("INSERT INTO Cliente (nome, cpf,nasc) VALUES(?,?,?)");
+            instrucaoSQL = conexao.prepareStatement("INSERT INTO Cliente (nome, cpf) VALUES(?,?)");
 
             instrucaoSQL.setString(1, cad.getNome());
             instrucaoSQL.setString(2, cad.getCPF());
-            instrucaoSQL.setDate(3, new java.sql.Date(cad.getDataNascimento().getTime()));
 
             int linhasAfetadas = instrucaoSQL.executeUpdate();
 

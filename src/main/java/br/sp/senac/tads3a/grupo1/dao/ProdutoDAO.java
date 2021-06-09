@@ -26,7 +26,7 @@ public static boolean salvarProduto(Produto cad) {
         try {
 
             conexao = Conexao.abrirConexao();
-            instrucaoSQL = conexao.prepareStatement("INSERT INTO Cliente (nome, cpf,nasc) VALUES(?,?,?)");
+            instrucaoSQL = conexao.prepareStatement("INSERT INTO produto (descricao, preco, quantidade, valorUnitario) VALUES(?,?,?,?)");
 
             instrucaoSQL.setString(1, cad.getDescricao());
             instrucaoSQL.setFloat(2, cad.getPreco());

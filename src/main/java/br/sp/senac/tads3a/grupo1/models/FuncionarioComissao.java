@@ -8,8 +8,8 @@ public class FuncionarioComissao extends Funcionario{
     private float taxaComissao;
     private float vendas;
     
-    public FuncionarioComissao(String nome, Date dataNascimento, String CPF, int funcionarioId, float taxaComissao, float vendas,String departamento){
-        super(nome, dataNascimento, CPF, funcionarioId, departamento);
+    public FuncionarioComissao(String nome, String CPF, int funcionarioId, float taxaComissao, float vendas,String departamento){
+        super(nome,  CPF, funcionarioId, departamento);
         this.taxaComissao = taxaComissao;
         this.vendas = vendas;
     }
