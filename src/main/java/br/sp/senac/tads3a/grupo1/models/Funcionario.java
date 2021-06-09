@@ -4,10 +4,8 @@ import java.util.Date;
 
 public class Funcionario extends Pessoa {
 
-
-       private int funcionarioId;
-       private String departamento;
-
+    private int funcionarioId;
+    private String departamento;
 
     public Funcionario(String nome, String CPF, int funcionarioId, String departamento) {
         super(nome, CPF);
@@ -21,7 +19,7 @@ public class Funcionario extends Pessoa {
     public void setDepartamento(String departamento) {
         this.departamento = departamento;
     }
-    
+
     public int getFuncionarioId() {
         return funcionarioId;
     }

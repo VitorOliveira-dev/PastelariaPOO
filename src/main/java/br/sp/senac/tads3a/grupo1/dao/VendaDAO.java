@@ -34,26 +34,25 @@ public class VendaDAO {
         try {
             conexao = Conexao.abrirConexao();
 
-            comandoSQL = conexao.prepareStatement("INSERT INTO Venda(datavenda,valortotal, clienteid,funcionarioid,produtoid )"
-                    + " VALUES (NOW(), ?, ?,?,?)",
-                    Statement.RETURN_GENERATED_KEYS);
+            comandoSQL = conexao.prepareStatement("INSERT INTO Venda(datavenda, valortotal, clienteid, funcionarioid, produtoid)"
+                    + " VALUES (NOW(), ?, ?,?,?)");
 
             comandoSQL.setFloat(1, venda.getValorTotal());
             comandoSQL.setInt(2, venda.getClienteid());
-             comandoSQL.setInt(3, venda.getFuncionarioid());
-             comandoSQL.setInt(4, venda.getProdutoid());
-             
+            comandoSQL.setInt(3, venda.getFuncionarioid());
+            comandoSQL.setInt(4, venda.getProdutoid());
+
             int linhasAfetadas = comandoSQL.executeUpdate();
 
             if (linhasAfetadas > 0) {
                 retorno = true;
 
+                comandoSQL = conexao.prepareStatement("update funcionario set comissao =  comissao +(?/100) where funcionarioid = ?"
+                        + Statement.RETURN_GENERATED_KEYS);
 
-           /* comandoSQL = conexao.prepareStatement("update funcionario set salario =  salario + ? where funcionarioid = ?" +
-                    Statement.RETURN_GENERATED_KEYS);
-                
-                comandoSQL.setFloat(1, venda.getFuncionarioComissao().getTaxaComissao());
-                comandoSQL.setInt (2, venda.getFuncionarioid());*/
+                comandoSQL.setFloat(1, venda.getValorTotal());
+                comandoSQL.setInt(2, venda.getFuncionarioid());
+
             } else {
                 retorno = false;
             }
