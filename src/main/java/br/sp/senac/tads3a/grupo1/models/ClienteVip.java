@@ -8,8 +8,8 @@ public class ClienteVip extends Cliente{
     
 private float desconto;
 
-    public ClienteVip(String nome, Date dataNascimento, String CPF, int clienteId, float desconto) {
-        super(nome, dataNascimento, CPF, clienteId);
+    public ClienteVip(String nome, String CPF, int clienteId, float desconto) {
+        super(nome, CPF, clienteId);
         this.desconto = desconto;
     }
 

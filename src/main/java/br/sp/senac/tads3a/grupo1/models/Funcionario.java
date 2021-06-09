@@ -9,8 +9,8 @@ public class Funcionario extends Pessoa {
        private String departamento;
 
 
-    public Funcionario(String nome, Date dataNascimento, String CPF, int funcionarioId, String departamento) {
-        super(nome, dataNascimento, CPF);
+    public Funcionario(String nome, String CPF, int funcionarioId, String departamento) {
+        super(nome, CPF);
         this.funcionarioId = funcionarioId;
     }
 
