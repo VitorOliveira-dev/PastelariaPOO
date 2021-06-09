@@ -136,7 +136,7 @@ public class VendaView extends javax.swing.JFrame {
                                     .addComponent(jLabel6)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jcbPastel, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGap(18, 18, 18)
                                 .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -162,7 +162,7 @@ public class VendaView extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jcbPastel, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(116, Short.MAX_VALUE))
@@ -183,7 +183,23 @@ public class VendaView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
-        // TODO add your handling code here:
+        //Pega o valor do ID do CB
+        String id_clienteS = jcbCliente.getSelectedItem().toString();
+        //Transforma o valor em inteiro
+        int id_cliente = Integer.parseInt(id_clienteS.substring(0, id_clienteS.indexOf(" ")));
+
+        //Pega o valor do ID do CB
+        String id_produtoS = jcbPastel.getSelectedItem().toString();
+        //Transforma o valor em inteiro
+        int id_produto = Integer.parseInt(id_produtoS.substring(0, id_produtoS.indexOf(" ")));
+
+        //Pega o valor do ID do CB
+        String id_funcionarioS = jcbFuncionario.getSelectedItem().toString();
+        //Transforma o valor em inteiro
+        int id_funcionario = Integer.parseInt(id_funcionarioS.substring(0, id_funcionarioS.indexOf(" ")));
+
+        
+        
     }//GEN-LAST:event_btnConfirmActionPerformed
 
     /**
