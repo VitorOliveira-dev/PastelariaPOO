@@ -33,40 +33,21 @@ public class VendaDAO {
         try {
             conexao = Conexao.abrirConexao();
 
-            comandoSQL = conexao.prepareStatement("INSERT INTO Venda(datavenda,valortotal, clienteid )"
-                    + " VALUES (NOW(), ?, ?)",
+            comandoSQL = conexao.prepareStatement("INSERT INTO Venda(datavenda,valortotal, clienteid,funcionarioid,produtoid )"
+                    + " VALUES (NOW(), ?, ?,?,?)",
                     Statement.RETURN_GENERATED_KEYS);
 
             comandoSQL.setFloat(1, venda.getValorTotal());
             comandoSQL.setInt(2, venda.getCliente().getClienteId());
-
+             comandoSQL.setInt(3, venda.getFuncionario().getFuncionarioId());
+             comandoSQL.setInt(4, venda.getProduto().getProdutoId());
+             
             int linhasAfetadas = comandoSQL.executeUpdate();
 
             if (linhasAfetadas > 0) {
                 retorno = true;
-
-                ResultSet pk = comandoSQL.getGeneratedKeys();
-                if (pk.next()) {
-                    venda.setVendaId(pk.getInt(1));
-
-                    for (Pedido item : venda.getListar()) {
-
-                        PreparedStatement comandoSQLItens = conexao.prepareStatement("INSERT INTO pedido (produtoid, vendaid, quantidade,valorUnitario) VALUES (?,?,?,?)",
-                                Statement.RETURN_GENERATED_KEYS);
-
-                        comandoSQLItens.setInt(1, item.getProduto().getProdutoId());
-                        comandoSQLItens.setInt(2, venda.getVendaId());
-                        comandoSQLItens.setInt(3, item.getQuantidade());
-                        comandoSQLItens.setFloat(4, item.getValorUnitario());
-
-                        int itensAfetados = comandoSQLItens.executeUpdate();
-                        if (itensAfetados < 0) {
-                            throw new SQLException("Falha ao inserir itens do pedido");
-                        }
-                    }
-                } else {
-                    throw new SQLException("Falha ao obter o ID da venda");
-                }
+                
+                
             } else {
                 retorno = false;
             }
@@ -146,7 +127,7 @@ public class VendaDAO {
             rs = comandoSQL.executeQuery();
 
             while (rs.next()) {
-                Cliente c = new Cliente(rs.getString("nome"), rs.getDate("nasc"), rs.getString("cpf"), rs.getInt("clienteid"));
+                Cliente c = new Cliente(rs.getString("nome"), rs.getString("cpf"), rs.getInt("clienteid"));
 
                 listaClientes.add(c);
             }
@@ -182,12 +163,12 @@ public class VendaDAO {
 
         try {
             conexao = Conexao.abrirConexao();
-            comandoSQL = conexao.prepareStatement("SELECT * FROM funcionario WHERE departamento = venda");
+            comandoSQL = conexao.prepareStatement("SELECT * FROM funcionario WHERE departamento like 'venda'");
 
             rs = comandoSQL.executeQuery();
 
             while (rs.next()) {
-                Funcionario f = new Funcionario(rs.getString("nome"), rs.getDate("nascimento"), rs.getString("cpf"), rs.getInt("funcionarioid"), rs.getString("departamento"));
+                Funcionario f = new Funcionario(rs.getString("nome"), rs.getString("cpf"), rs.getInt("funcionarioid"), rs.getString("departamento"));
 
                 listaFuncionarios.add(f);
             }

@@ -30,13 +30,12 @@ public class FuncionarioDAO {
             
 
             
-            instrucaoSQL = conexao.prepareStatement("INSERT INTO funcionario (nome, cpf,nasc, departamento, salario) VALUES(?,?,?,?)");
+            instrucaoSQL = conexao.prepareStatement("INSERT INTO funcionario (nome, cpf,departamento, salario) VALUES(?,?,?,?)");
 
             instrucaoSQL.setString(1, cad.getNome());
             instrucaoSQL.setString(2, cad.getCPF());
-            instrucaoSQL.setDate(3, new java.sql.Date(cad.getDataNascimento().getTime()));
-            instrucaoSQL.setString(4, cad.getDepartamento());
-            instrucaoSQL.setFloat(5, cad.getSalario());
+            instrucaoSQL.setString(3, cad.getDepartamento());
+            instrucaoSQL.setFloat(4, cad.getSalario());
             
             
             
@@ -85,12 +84,11 @@ public class FuncionarioDAO {
             
 
             
-            instrucaoSQL = conexao.prepareStatement("INSERT INTO funcionario (nome, cpf,nasc, departamento, salario) VALUES(?,?,?,?)");
+            instrucaoSQL = conexao.prepareStatement("INSERT INTO funcionario (nome, cpf,departamento, salario) VALUES(?,?,?)");
 
             instrucaoSQL.setString(1, cad.getNome());
             instrucaoSQL.setString(2, cad.getCPF());
-            instrucaoSQL.setDate(3, new java.sql.Date(cad.getDataNascimento().getTime()));
-            instrucaoSQL.setFloat(4, cad.getSalario());
+            instrucaoSQL.setFloat(3, cad.getSalario());
   
             
             
