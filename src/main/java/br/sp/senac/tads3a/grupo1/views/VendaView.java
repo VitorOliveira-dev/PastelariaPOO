@@ -19,7 +19,7 @@ public class VendaView extends javax.swing.JFrame {
 
         ArrayList<Produto> produtos = VendaController.buscarProdutos();
         for (Produto produto : produtos) {
-            jcbPastel.addItem(String.valueOf(produto.getProdutoId()) + " | " + produto.getDescricao());
+            jcbPastel.addItem(String.valueOf(produto.getProdutoId()) + " | " + produto.getDescricao() + " | R$ " + produto.getPreco());
         }
         AutoCompleteDecorator.decorate(jcbPastel);
 
@@ -198,8 +198,10 @@ public class VendaView extends javax.swing.JFrame {
         //Transforma o valor em inteiro
         int id_funcionario = Integer.parseInt(id_funcionarioS.substring(0, id_funcionarioS.indexOf(" ")));
 
-        VendaController.vendaVender(11, id_cliente, id_produto, id_funcionario);
-        
+        float valor = Float.parseFloat(id_produtoS.substring(id_produtoS.indexOf("$"), id_produtoS.length()).trim());
+
+        VendaController.vendaVender(valor, id_cliente, id_produto, id_funcionario);
+
     }//GEN-LAST:event_btnConfirmActionPerformed
 
     /**
