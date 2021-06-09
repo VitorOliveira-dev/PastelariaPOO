@@ -182,7 +182,7 @@ public class VendaDAO {
 
         try {
             conexao = Conexao.abrirConexao();
-            comandoSQL = conexao.prepareStatement("SELECT * FROM funcionario WHERE departamento = venda");
+            comandoSQL = conexao.prepareStatement("SELECT * FROM funcionario WHERE departamento = 'vendas' OR departamento = 'Gerente'");
 
             rs = comandoSQL.executeQuery();
 
