@@ -7,6 +7,7 @@ package br.sp.senac.tads3a.grupo1.dao;
 
 import br.sp.senac.tads3a.grupo1.models.Cliente;
 import br.sp.senac.tads3a.grupo1.models.Funcionario;
+import br.sp.senac.tads3a.grupo1.models.FuncionarioComissao;
 import br.sp.senac.tads3a.grupo1.models.Pedido;
 import br.sp.senac.tads3a.grupo1.models.Produto;
 import br.sp.senac.tads3a.grupo1.models.Venda;
@@ -38,16 +39,21 @@ public class VendaDAO {
                     Statement.RETURN_GENERATED_KEYS);
 
             comandoSQL.setFloat(1, venda.getValorTotal());
-            comandoSQL.setInt(2, venda.getCliente().getClienteId());
-             comandoSQL.setInt(3, venda.getFuncionario().getFuncionarioId());
-             comandoSQL.setInt(4, venda.getProduto().getProdutoId());
+            comandoSQL.setInt(2, venda.getClienteid());
+             comandoSQL.setInt(3, venda.getFuncionarioid());
+             comandoSQL.setInt(4, venda.getProdutoid());
              
             int linhasAfetadas = comandoSQL.executeUpdate();
 
             if (linhasAfetadas > 0) {
                 retorno = true;
+
+
+           /* comandoSQL = conexao.prepareStatement("update funcionario set salario =  salario + ? where funcionarioid = ?" +
+                    Statement.RETURN_GENERATED_KEYS);
                 
-                
+                comandoSQL.setFloat(1, venda.getFuncionarioComissao().getTaxaComissao());
+                comandoSQL.setInt (2, venda.getFuncionarioid());*/
             } else {
                 retorno = false;
             }
@@ -163,7 +169,7 @@ public class VendaDAO {
 
         try {
             conexao = Conexao.abrirConexao();
-            comandoSQL = conexao.prepareStatement("SELECT * FROM funcionario WHERE departamento = 'vendas' OR departamento = 'Gerente'");
+            comandoSQL = conexao.prepareStatement("SELECT * FROM funcionario WHERE departamento = 'venda' OR departamento = 'Gerente'");
 
             rs = comandoSQL.executeQuery();
 

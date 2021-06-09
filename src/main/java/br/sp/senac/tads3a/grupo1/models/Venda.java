@@ -9,47 +9,35 @@ public class Venda {
 private int vendaId;
 private Date dataVenda;
 private float valorTotal;
-private Cliente cliente;
-private Funcionario funcionario;
-private Produto produto;
-
-ArrayList<Pedido> listar;
+private int clienteid; // foreignkey cliente
+private int funcionarioid; // foreignkey funcionario
+private int  produtoid; // foreignkey produto
+private FuncionarioComissao funcionarioComissao;
+private ArrayList<Pedido> listar;
 
 
  
 
-public Venda(int vendaId, Date dataVenda, float valorTotal, Cliente cliente,Funcionario funcionario, Produto produto){
+public Venda(int vendaId, Date dataVenda, float valorTotal, int clienteid,int funcionarioid, int  produtoid,FuncionarioComissao funcionarioComissao){
     this.vendaId = vendaId;
     this.dataVenda = dataVenda;
     this.valorTotal = valorTotal;
-    this.cliente= cliente;
-    this.funcionario = funcionario;
-    this.produto = produto;
+    this.clienteid= clienteid;
+    this.funcionarioid = funcionarioid;
+    this.produtoid = produtoid;
+    this.funcionarioComissao = funcionarioComissao;
 }
-
-    public Produto getProduto() {
-        return produto;
+  public Venda(){
     }
 
-    public void setProduto(Produto produto) {
-        this.produto = produto;
+    public ArrayList<Pedido> getListar() {
+        return listar;
     }
 
-    public Funcionario getFuncionario() {
-        return funcionario;
+    public void setListar(ArrayList<Pedido> listar) {
+        this.listar = listar;
     }
 
-    public void setFuncionario(Funcionario funcionario) {
-        this.funcionario = funcionario;
-    }
-
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
     public int getVendaId() {
         return vendaId;
     }
@@ -73,12 +61,39 @@ public Venda(int vendaId, Date dataVenda, float valorTotal, Cliente cliente,Func
     public void setValorTotal(float valorTotal) {
         this.valorTotal = valorTotal;
     }
-    public ArrayList<Pedido> getListar() {
-        return listar;
+
+    public int getClienteid() {
+        return clienteid;
     }
 
-    public void setListar(ArrayList<Pedido> listar) {
-        this.listar = listar;
+    public void setClienteid(int clienteid) {
+        this.clienteid = clienteid;
     }
 
+    public int getFuncionarioid() {
+        return funcionarioid;
+    }
+
+    public void setFuncionarioid(int funcionarioid) {
+        this.funcionarioid = funcionarioid;
+    }
+
+    public int getProdutoid() {
+        return produtoid;
+    }
+
+    public void setProdutoid(int produtoid) {
+        this.produtoid = produtoid;
+    }
+
+    public FuncionarioComissao getFuncionarioComissao() {
+        return funcionarioComissao;
+    }
+
+    public void setFuncionarioComissao(FuncionarioComissao funcionarioComissao) {
+        this.funcionarioComissao = funcionarioComissao;
+    }
+
+
+   
 }

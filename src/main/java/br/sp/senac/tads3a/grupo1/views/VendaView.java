@@ -198,7 +198,7 @@ public class VendaView extends javax.swing.JFrame {
         //Transforma o valor em inteiro
         int id_funcionario = Integer.parseInt(id_funcionarioS.substring(0, id_funcionarioS.indexOf(" ")));
 
-        
+        VendaController.vendaVender(11, id_cliente, id_produto, id_funcionario);
         
     }//GEN-LAST:event_btnConfirmActionPerformed
 

@@ -16,6 +16,7 @@ public class FuncionarioComissao extends Funcionario{
 
     public float getTaxaComissao() {
         return taxaComissao;
+        
     }
 
     public void setTaxaComissao(float taxaComissao) {
