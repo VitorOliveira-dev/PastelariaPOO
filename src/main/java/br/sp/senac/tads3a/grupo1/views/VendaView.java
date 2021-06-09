@@ -19,19 +19,19 @@ public class VendaView extends javax.swing.JFrame {
 
         ArrayList<Produto> produtos = VendaController.buscarProdutos();
         for (Produto produto : produtos) {
-            jcbPastel.addItem(produto.getDescricao());
+            jcbPastel.addItem(String.valueOf(produto.getProdutoId()) + " | " + produto.getDescricao());
         }
         AutoCompleteDecorator.decorate(jcbPastel);
 
         ArrayList<Cliente> clientes = VendaController.buscarClientes();
         for (Cliente cliente : clientes) {
-            jcbCliente.addItem(cliente.getNome());
+            jcbCliente.addItem(String.valueOf(cliente.getClienteId()) + " | " + cliente.getNome());
         }
         AutoCompleteDecorator.decorate(jcbCliente);
 
         ArrayList<Funcionario> funcionarios = VendaController.buscarFuncionarios();
         for (Funcionario funcionario : funcionarios) {
-            jcbFuncionario.addItem(funcionario.getNome());
+            jcbFuncionario.addItem(String.valueOf(funcionario.getFuncionarioId()) + " | " + funcionario.getNome());
         }
         AutoCompleteDecorator.decorate(jcbFuncionario);
 
