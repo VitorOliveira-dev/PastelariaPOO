@@ -3,7 +3,7 @@ package br.sp.senac.tads3a.grupo1.models;
 import java.util.Date;
 
 
-public  abstract class  Pessoa {
+public  abstract class  Pessoa implements Pagavel {
 
 private String nome;
 private String CPF;

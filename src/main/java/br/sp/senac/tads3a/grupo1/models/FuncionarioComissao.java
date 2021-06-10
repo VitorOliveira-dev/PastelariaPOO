@@ -36,6 +36,10 @@ public class FuncionarioComissao extends Funcionario{
     
     }
     
-    
+    @Override
+    public double calculaGanhos(){
+        
+    return 1.5;
+    }
 
 }
