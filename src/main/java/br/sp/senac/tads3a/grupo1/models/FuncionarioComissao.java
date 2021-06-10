@@ -35,7 +35,17 @@ public class FuncionarioComissao extends Funcionario{
     public void setVendas(float vendas) {
         this.vendas = vendas;
     }
+
+    public float getSalario(){
+     return getTaxaComissao() * getVendas();
     
+    }
     
+    @Override
+    public double calculaGanhos(){
+        
+    return 1.5;
+    }
+
 
 }

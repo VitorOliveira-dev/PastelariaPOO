@@ -47,11 +47,12 @@ public class VendaDAO {
             if (linhasAfetadas > 0) {
                 retorno = true;
 
-                comandoSQL = conexao.prepareStatement("update funcionario set comissao =  comissao +(?/100) where funcionarioid = ?"
-                        + Statement.RETURN_GENERATED_KEYS);
+                comandoSQL = conexao.prepareStatement("update funcionario set comissao =  comissao +(?*0.1) where funcionarioid = ?");
 
                 comandoSQL.setFloat(1, venda.getValorTotal());
                 comandoSQL.setInt(2, venda.getFuncionarioid());
+                
+                comandoSQL.executeUpdate();
 
             } else {
                 retorno = false;
@@ -93,6 +94,7 @@ public class VendaDAO {
                 p.setDescricao(rs.getString("descricao"));
                 p.setProdutoId(rs.getInt("produtoid"));
                 p.setPreco(rs.getFloat("preco"));
+              
                 listaProdutos.add(p);
             }
 
@@ -168,7 +170,7 @@ public class VendaDAO {
 
         try {
             conexao = Conexao.abrirConexao();
-            comandoSQL = conexao.prepareStatement("SELECT * FROM funcionario WHERE departamento = 'venda' OR departamento = 'Gerente'");
+            comandoSQL = conexao.prepareStatement("SELECT * FROM funcionario WHERE departamento = 'Vendas' OR departamento = 'Gerente'");
 
             rs = comandoSQL.executeQuery();
 

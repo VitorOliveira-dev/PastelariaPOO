@@ -10,6 +10,7 @@ import br.sp.senac.tads3a.grupo1.models.Cliente;
 import br.sp.senac.tads3a.grupo1.models.Funcionario;
 import br.sp.senac.tads3a.grupo1.models.Produto;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 
 public class VendaView extends javax.swing.JFrame {
@@ -198,9 +199,18 @@ public class VendaView extends javax.swing.JFrame {
         //Transforma o valor em inteiro
         int id_funcionario = Integer.parseInt(id_funcionarioS.substring(0, id_funcionarioS.indexOf(" ")));
 
+        float valor = Float.parseFloat(id_produtoS.substring(id_produtoS.indexOf("$") + 1, id_produtoS.length()).trim());
+
         float valor = Float.parseFloat(id_produtoS.substring(id_produtoS.indexOf("$")+1, id_produtoS.length()).trim());
 
-        VendaController.vendaVender(valor, id_cliente, id_produto, id_funcionario);
+
+        if (VendaController.vendaVender(valor, id_cliente, id_produto, id_funcionario)) {
+            JOptionPane.showMessageDialog(null, "Venda realizada com sucesso !");
+            dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro ao registrar a venda");
+            dispose();
+        }
 
     }//GEN-LAST:event_btnConfirmActionPerformed
 
