@@ -21,7 +21,6 @@ public Pessoa(String nome, String CPF){
         this.nome = nome;
     }
 
-
     public String getCPF() {
         return CPF;
     }
@@ -29,6 +28,9 @@ public Pessoa(String nome, String CPF){
     public void setCPF(String CPF) {
         this.CPF = CPF;
     }
+
+ 
+
 
 
 }

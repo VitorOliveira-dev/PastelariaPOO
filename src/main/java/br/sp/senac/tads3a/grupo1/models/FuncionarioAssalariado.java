@@ -24,4 +24,5 @@ public class FuncionarioAssalariado extends Funcionario {
 
         return 1.5;
     }
+
 }

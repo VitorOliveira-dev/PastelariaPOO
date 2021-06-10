@@ -94,7 +94,7 @@ public class VendaDAO {
                 p.setDescricao(rs.getString("descricao"));
                 p.setProdutoId(rs.getInt("produtoid"));
                 p.setPreco(rs.getFloat("preco"));
-
+              
                 listaProdutos.add(p);
             }
 
