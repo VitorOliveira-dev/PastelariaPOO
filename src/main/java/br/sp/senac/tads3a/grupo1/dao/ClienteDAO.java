@@ -24,7 +24,6 @@ public class ClienteDAO {
         PreparedStatement instrucaoSQL = null;
 
         try {
-            System.out.println("entrou");
             conexao = Conexao.abrirConexao();
             instrucaoSQL = conexao.prepareStatement("INSERT INTO Cliente (nome, cpf) VALUES(?,?)");
 
