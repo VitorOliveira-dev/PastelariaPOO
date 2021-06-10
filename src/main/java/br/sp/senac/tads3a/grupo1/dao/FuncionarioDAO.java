@@ -5,6 +5,7 @@
  */
 package br.sp.senac.tads3a.grupo1.dao;
 
+import br.sp.senac.tads3a.grupo1.models.Funcionario;
 import br.sp.senac.tads3a.grupo1.models.FuncionarioAssalariado;
 import br.sp.senac.tads3a.grupo1.models.FuncionarioComissao;
 import br.sp.senac.tads3a.grupo1.utils.Conexao;

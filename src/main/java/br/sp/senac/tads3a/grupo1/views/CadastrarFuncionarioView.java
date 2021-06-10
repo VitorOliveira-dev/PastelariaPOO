@@ -5,6 +5,8 @@
  */
 package br.sp.senac.tads3a.grupo1.views;
 
+import br.sp.senac.tads3a.grupo1.controllers.CadastrarFuncionarioController;
+
 /**
  *
  * @author PICHAU
@@ -33,13 +35,13 @@ public class CadastrarFuncionarioView extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         txtName = new javax.swing.JTextField();
         lblSurname = new javax.swing.JLabel();
-        txtSurname = new javax.swing.JTextField();
+        txtCPF = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         lblSurname2 = new javax.swing.JLabel();
-        txtSurname2 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        txtSalario = new javax.swing.JTextField();
+        jcbDep = new javax.swing.JComboBox<>();
         lblSurname3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -59,10 +61,10 @@ public class CadastrarFuncionarioView extends javax.swing.JFrame {
         lblSurname.setFont(new java.awt.Font("Unispace", 0, 14)); // NOI18N
         lblSurname.setText("CPF");
 
-        txtSurname.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        txtSurname.addActionListener(new java.awt.event.ActionListener() {
+        txtCPF.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        txtCPF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSurnameActionPerformed(evt);
+                txtCPFActionPerformed(evt);
             }
         });
 
@@ -79,7 +81,7 @@ public class CadastrarFuncionarioView extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblTitle)
-                .addContainerGap(434, Short.MAX_VALUE))
+                .addContainerGap(416, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,14 +106,19 @@ public class CadastrarFuncionarioView extends javax.swing.JFrame {
         lblSurname2.setFont(new java.awt.Font("Unispace", 0, 14)); // NOI18N
         lblSurname2.setText("Salário");
 
-        txtSurname2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        txtSurname2.addActionListener(new java.awt.event.ActionListener() {
+        txtSalario.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        txtSalario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSurname2ActionPerformed(evt);
+                txtSalarioActionPerformed(evt);
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vendas", "Gerente", "Limpeza" }));
+        jcbDep.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vendas", "Gerente", "Limpeza" }));
+        jcbDep.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbDepActionPerformed(evt);
+            }
+        });
 
         lblSurname3.setFont(new java.awt.Font("Unispace", 0, 14)); // NOI18N
         lblSurname3.setText("Departamento");
@@ -132,22 +139,22 @@ public class CadastrarFuncionarioView extends javax.swing.JFrame {
                             .addComponent(lblName)
                             .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblSurname)
-                            .addComponent(txtSurname, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblSurname2)
                             .addGroup(pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, 0, 156, Short.MAX_VALUE)
-                                .addComponent(txtSurname2, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addComponent(jcbDep, javax.swing.GroupLayout.Alignment.LEADING, 0, 156, Short.MAX_VALUE)
+                                .addComponent(txtSalario, javax.swing.GroupLayout.Alignment.LEADING))
                             .addComponent(lblSurname3))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainLayout.createSequentialGroup()
+                .addContainerGap(481, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(78, 78, 78))
         );
         pnlMainLayout.setVerticalGroup(
             pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,18 +170,18 @@ public class CadastrarFuncionarioView extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(lblSurname)
                 .addGap(2, 2, 2)
-                .addComponent(txtSurname, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(73, 73, 73)
+                .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(lblSurname2)
-                .addGap(2, 2, 2)
-                .addComponent(txtSurname2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(txtSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(lblSurname3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(361, 361, 361)
+                .addGap(18, 18, 18)
+                .addComponent(jcbDep, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(308, 308, 308)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -199,17 +206,25 @@ public class CadastrarFuncionarioView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNameActionPerformed
 
-    private void txtSurnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSurnameActionPerformed
+    private void txtCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCPFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtSurnameActionPerformed
+    }//GEN-LAST:event_txtCPFActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        String nomeF = txtName.getText();
+        String cpf = txtCPF.getText();
+        float salario = Float.parseFloat(txtSalario.getText());
+        String departamento = jcbDep.getSelectedItem().toString();
+        CadastrarFuncionarioController.CadastrarFuncionario(nomeF,cpf,salario,departamento);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void txtSurname2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSurname2ActionPerformed
+    private void txtSalarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSalarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtSurname2ActionPerformed
+    }//GEN-LAST:event_txtSalarioActionPerformed
+
+    private void jcbDepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbDepActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcbDepActionPerformed
 
     /**
      * @param args the command line arguments
@@ -248,18 +263,18 @@ public class CadastrarFuncionarioView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JComboBox<String> jcbDep;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblSurname;
     private javax.swing.JLabel lblSurname2;
     private javax.swing.JLabel lblSurname3;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JPanel pnlMain;
+    private javax.swing.JTextField txtCPF;
     private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtSurname;
-    private javax.swing.JTextField txtSurname2;
+    private javax.swing.JTextField txtSalario;
     // End of variables declaration//GEN-END:variables
 }
