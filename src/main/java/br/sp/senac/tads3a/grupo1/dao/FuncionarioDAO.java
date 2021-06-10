@@ -72,61 +72,6 @@ public class FuncionarioDAO {
 
     }
      
-          public static boolean CadastrarFunc2(FuncionarioComissao cad) {
-
-        boolean retorno = false;
-        Connection conexao = null;
-        PreparedStatement instrucaoSQL = null;
-
-        try {
-                
-            conexao = Conexao.abrirConexao();
-            
-
-            
-            instrucaoSQL = conexao.prepareStatement("INSERT INTO funcionario (nome, cpf,departamento, salario) VALUES(?,?,?)");
-
-            instrucaoSQL.setString(1, cad.getNome());
-            instrucaoSQL.setString(2, cad.getCPF());
-            instrucaoSQL.setFloat(3, cad.getSalario());
-  
-            
-            
-            
-            int linhasAfetadas = instrucaoSQL.executeUpdate();
-
-            if (linhasAfetadas > 0) {
-                retorno = true;
-
-            } else {
-                retorno = false;
-            }
-
-        } catch (SQLException | ClassNotFoundException | NullPointerException ex ) {
-            System.out.println("ERROR " + ex.getMessage());
-            retorno = false;
-        } finally {
-
-            //Libero os recursos da memória
-            try {
-                if (instrucaoSQL != null) {
-                    instrucaoSQL.close();
-                }
-
-                if (conexao != null) {
-                    Conexao.fecharConexao();
-                }
-
-            } catch (SQLException ex) {
-
-            }
-        }
-
-        return retorno;
-
-    }
           
-          
-     
-    
+         
 }
