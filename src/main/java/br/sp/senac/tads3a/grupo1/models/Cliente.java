@@ -1,6 +1,5 @@
 package br.sp.senac.tads3a.grupo1.models;
 
-
 public class Cliente extends Pessoa {
 
     private int clienteId;
@@ -22,6 +21,9 @@ public class Cliente extends Pessoa {
         this.clienteId = clienteId;
     }
 
-
+    @Override
+    public float getCalculaGanhos() {
+        return 0;
+    }
 
 }

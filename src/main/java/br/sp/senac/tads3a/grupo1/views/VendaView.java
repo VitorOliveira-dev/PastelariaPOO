@@ -201,9 +201,6 @@ public class VendaView extends javax.swing.JFrame {
 
         float valor = Float.parseFloat(id_produtoS.substring(id_produtoS.indexOf("$") + 1, id_produtoS.length()).trim());
 
-        float valor = Float.parseFloat(id_produtoS.substring(id_produtoS.indexOf("$")+1, id_produtoS.length()).trim());
-
-
         if (VendaController.vendaVender(valor, id_cliente, id_produto, id_funcionario)) {
             JOptionPane.showMessageDialog(null, "Venda realizada com sucesso !");
             dispose();

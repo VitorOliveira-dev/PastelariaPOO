@@ -32,6 +32,9 @@ public class Funcionario extends Pessoa {
         this.departamento = departamento;
     }
 
-
+    @Override
+    public float getCalculaGanhos(){
+    return 0;
+    }
 
 }
