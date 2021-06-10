@@ -20,9 +20,9 @@ public class FuncionarioAssalariado extends Funcionario {
     }
 
     @Override
-    public double calculaGanhos() {
+    public float getCalculaGanhos() {
 
-        return 1.5;
+        return getSalario();
     }
 
 }

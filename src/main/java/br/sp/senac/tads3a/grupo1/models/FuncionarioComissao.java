@@ -5,27 +5,21 @@ import java.util.Date;
 
 public class FuncionarioComissao extends Funcionario{
     
-    private float taxaComissao;
+    private float Comissao;
     private float vendas;
     
-    public FuncionarioComissao(String nome, String CPF, int funcionarioId, float taxaComissao, float vendas,String departamento){
+    public FuncionarioComissao(String nome, String CPF, int funcionarioId, float Comissao, float vendas,String departamento){
         super(nome,  CPF, funcionarioId, departamento);
-        this.taxaComissao = taxaComissao;
+        this.Comissao = Comissao;
         this.vendas = vendas;
     }
 
-
-    public float getSalario(){
-     return getTaxaComissao() * getVendas();
-    
+    public float getComissao() {
+        return Comissao;
     }
 
-    public float getTaxaComissao() {
-        return taxaComissao;
-    }
-
-    public void setTaxaComissao(float taxaComissao) {
-        this.taxaComissao = taxaComissao;
+    public void setComissao(float Comissao) {
+        this.Comissao = Comissao;
     }
 
     public float getVendas() {
@@ -36,15 +30,11 @@ public class FuncionarioComissao extends Funcionario{
         this.vendas = vendas;
     }
 
-    public float getSalario(){
-     return getTaxaComissao() * getVendas();
-    
-    }
     
     @Override
-    public double calculaGanhos(){
+    public float getCalculaGanhos(){
         
-    return 1.5;
+    return getComissao();
     }
 
 
