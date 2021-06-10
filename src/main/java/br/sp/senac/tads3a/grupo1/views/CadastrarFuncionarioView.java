@@ -37,8 +37,6 @@ public class CadastrarFuncionarioView extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        lblSurname1 = new javax.swing.JLabel();
-        txtSurname1 = new javax.swing.JTextField();
         lblSurname2 = new javax.swing.JLabel();
         txtSurname2 = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
@@ -81,7 +79,7 @@ public class CadastrarFuncionarioView extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblTitle)
-                .addContainerGap(463, Short.MAX_VALUE))
+                .addContainerGap(434, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -100,16 +98,6 @@ public class CadastrarFuncionarioView extends javax.swing.JFrame {
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
-            }
-        });
-
-        lblSurname1.setFont(new java.awt.Font("Unispace", 0, 14)); // NOI18N
-        lblSurname1.setText("Data de Nascimento");
-
-        txtSurname1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        txtSurname1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSurname1ActionPerformed(evt);
             }
         });
 
@@ -145,8 +133,6 @@ public class CadastrarFuncionarioView extends javax.swing.JFrame {
                             .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblSurname)
                             .addComponent(txtSurname, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblSurname1)
-                            .addComponent(txtSurname1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblSurname2)
                             .addGroup(pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, 0, 156, Short.MAX_VALUE)
@@ -178,11 +164,7 @@ public class CadastrarFuncionarioView extends javax.swing.JFrame {
                 .addComponent(lblSurname)
                 .addGap(2, 2, 2)
                 .addComponent(txtSurname, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblSurname1)
-                .addGap(2, 2, 2)
-                .addComponent(txtSurname1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(73, 73, 73)
                 .addComponent(lblSurname2)
                 .addGap(2, 2, 2)
                 .addComponent(txtSurname2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -200,7 +182,10 @@ public class CadastrarFuncionarioView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlMain, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pnlMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(19, 19, 19))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -221,10 +206,6 @@ public class CadastrarFuncionarioView extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void txtSurname1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSurname1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSurname1ActionPerformed
 
     private void txtSurname2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSurname2ActionPerformed
         // TODO add your handling code here:
@@ -273,14 +254,12 @@ public class CadastrarFuncionarioView extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblSurname;
-    private javax.swing.JLabel lblSurname1;
     private javax.swing.JLabel lblSurname2;
     private javax.swing.JLabel lblSurname3;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JPanel pnlMain;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtSurname;
-    private javax.swing.JTextField txtSurname1;
     private javax.swing.JTextField txtSurname2;
     // End of variables declaration//GEN-END:variables
 }

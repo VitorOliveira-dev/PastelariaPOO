@@ -5,6 +5,8 @@
  */
 package br.sp.senac.tads3a.grupo1.views;
 
+import br.sp.senac.tads3a.grupo1.controllers.CadastroCliController;
+
 /**
  *
  * @author PICHAU
@@ -37,8 +39,6 @@ public class CadastrarCliente extends javax.swing.JFrame {
         pnlTtitle = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        lbBirthDate = new javax.swing.JLabel();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -98,16 +98,6 @@ public class CadastrarCliente extends javax.swing.JFrame {
             }
         });
 
-        lbBirthDate.setFont(new java.awt.Font("Unispace", 0, 14)); // NOI18N
-        lbBirthDate.setText("Data de Nascimento");
-
-        jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
-        jFormattedTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextField1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout pnlMainLayout = new javax.swing.GroupLayout(pnlMain);
         pnlMain.setLayout(pnlMainLayout);
         pnlMainLayout.setHorizontalGroup(
@@ -125,18 +115,13 @@ public class CadastrarCliente extends javax.swing.JFrame {
                             .addComponent(lblName)
                             .addComponent(txtName)
                             .addComponent(lblCPF)
-                            .addComponent(txtCPF, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
-                            .addComponent(lbBirthDate)
-                            .addComponent(jFormattedTextField1))
+                            .addComponent(txtCPF, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
-
-        pnlMainLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jFormattedTextField1, txtCPF});
-
         pnlMainLayout.setVerticalGroup(
             pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMainLayout.createSequentialGroup()
@@ -151,17 +136,11 @@ public class CadastrarCliente extends javax.swing.JFrame {
                 .addComponent(lblCPF)
                 .addGap(2, 2, 2)
                 .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lbBirthDate)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(104, 104, 104)
+                .addGap(177, 177, 177)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(431, 431, 431)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-
-        pnlMainLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jFormattedTextField1, txtCPF});
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -188,12 +167,11 @@ public class CadastrarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCPFActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+       
+        String nomecli = txtName.getText();
+        String cpfcli= txtCPF.getText();
+        CadastroCliController.Cadastrar(nomecli, cpfcli);
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jFormattedTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -234,10 +212,8 @@ public class CadastrarCliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JLabel lbBirthDate;
     private javax.swing.JLabel lblCPF;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblTitle;

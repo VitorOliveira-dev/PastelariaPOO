@@ -5,6 +5,8 @@
  */
 package br.sp.senac.tads3a.grupo1.views;
 
+import br.sp.senac.tads3a.grupo1.controllers.CadastroProdutoController;
+
 /**
  *
  * @author PICHAU
@@ -31,14 +33,12 @@ public class CadastrarProduto extends javax.swing.JFrame {
         lblProduct = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
-        txtProduct = new javax.swing.JTextField();
+        txtProduto = new javax.swing.JTextField();
         lblPrice = new javax.swing.JLabel();
-        txtPrice = new javax.swing.JTextField();
+        txtPreco = new javax.swing.JTextField();
         pnlTtitle = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         btnConfirm = new javax.swing.JButton();
-        lblQtd = new javax.swing.JLabel();
-        txtQtd = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -47,20 +47,20 @@ public class CadastrarProduto extends javax.swing.JFrame {
         lblProduct.setFont(new java.awt.Font("Unispace", 0, 14)); // NOI18N
         lblProduct.setText("Produto");
 
-        txtProduct.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        txtProduct.addActionListener(new java.awt.event.ActionListener() {
+        txtProduto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        txtProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtProductActionPerformed(evt);
+                txtProdutoActionPerformed(evt);
             }
         });
 
         lblPrice.setFont(new java.awt.Font("Unispace", 0, 14)); // NOI18N
         lblPrice.setText("Preço");
 
-        txtPrice.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        txtPrice.addActionListener(new java.awt.event.ActionListener() {
+        txtPreco.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        txtPreco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPriceActionPerformed(evt);
+                txtPrecoActionPerformed(evt);
             }
         });
 
@@ -98,16 +98,6 @@ public class CadastrarProduto extends javax.swing.JFrame {
             }
         });
 
-        lblQtd.setFont(new java.awt.Font("Unispace", 0, 14)); // NOI18N
-        lblQtd.setText("Quantidade");
-
-        txtQtd.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        txtQtd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtQtdActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout pnlMainLayout = new javax.swing.GroupLayout(pnlMain);
         pnlMain.setLayout(pnlMainLayout);
         pnlMainLayout.setHorizontalGroup(
@@ -122,18 +112,16 @@ public class CadastrarProduto extends javax.swing.JFrame {
                         .addGap(29, 29, 29)
                         .addGroup(pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblProduct)
-                            .addComponent(txtProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblPrice)
-                            .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblQtd)
-                            .addComponent(txtQtd, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addComponent(pnlTtitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47))
+                .addGap(132, 132, 132))
         );
         pnlMainLayout.setVerticalGroup(
             pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,18 +132,14 @@ public class CadastrarProduto extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addComponent(lblProduct)
                 .addGap(2, 2, 2)
-                .addComponent(txtProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(lblPrice)
                 .addGap(2, 2, 2)
-                .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblQtd)
-                .addGap(2, 2, 2)
-                .addComponent(txtQtd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(493, 493, 493)
+                .addComponent(txtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58)
                 .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(508, 508, 508)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -176,21 +160,19 @@ public class CadastrarProduto extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProductActionPerformed
+    private void txtProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProdutoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtProductActionPerformed
+    }//GEN-LAST:event_txtProdutoActionPerformed
 
-    private void txtPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPriceActionPerformed
+    private void txtPrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPriceActionPerformed
+    }//GEN-LAST:event_txtPrecoActionPerformed
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
-        // TODO add your handling code here:
+        String descricao = txtProduto.getText();
+        float preco = Float.parseFloat(txtPreco.getText());
+        CadastroProdutoController.CadastrarProduto(descricao,preco);
     }//GEN-LAST:event_btnConfirmActionPerformed
-
-    private void txtQtdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQtdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtQtdActionPerformed
 
     /**
      * @param args the command line arguments
@@ -236,12 +218,10 @@ public class CadastrarProduto extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel lblPrice;
     private javax.swing.JLabel lblProduct;
-    private javax.swing.JLabel lblQtd;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JPanel pnlMain;
     private javax.swing.JPanel pnlTtitle;
-    private javax.swing.JTextField txtPrice;
-    private javax.swing.JTextField txtProduct;
-    private javax.swing.JTextField txtQtd;
+    private javax.swing.JTextField txtPreco;
+    private javax.swing.JTextField txtProduto;
     // End of variables declaration//GEN-END:variables
 }

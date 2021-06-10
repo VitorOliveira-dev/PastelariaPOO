@@ -12,6 +12,9 @@ public Pessoa(String nome, String CPF){
     this.nome = nome;
     this.CPF = CPF;
 }
+  public Pessoa(){
+    
+}
 
     public String getNome() {
         return nome;
