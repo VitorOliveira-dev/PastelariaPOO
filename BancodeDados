@@ -11,8 +11,8 @@ create table funcionario
 (funcionarioid int primary key auto_increment,
 nome varchar(80) not null,
 cpf varchar(11) not null,
-salario float ,
-comissao float,
+salario float default 0 ,
+comissao float default 0 ,
 departamento varchar (50) not null
 );
 
@@ -20,9 +20,7 @@ departamento varchar (50) not null
 create table produto(
 produtoid int primary key auto_increment,
 descricao varchar (250) not null,
-preco float,
-valorUnitario float,
-quantidade int not null
+preco float
 );
 
 create table venda (
