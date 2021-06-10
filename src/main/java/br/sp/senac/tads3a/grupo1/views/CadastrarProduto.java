@@ -6,6 +6,7 @@
 package br.sp.senac.tads3a.grupo1.views;
 
 import br.sp.senac.tads3a.grupo1.controllers.CadastroProdutoController;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -40,7 +41,7 @@ public class CadastrarProduto extends javax.swing.JFrame {
         lblTitle = new javax.swing.JLabel();
         btnConfirm = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         pnlMain.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -172,6 +173,14 @@ public class CadastrarProduto extends javax.swing.JFrame {
         String descricao = txtProduto.getText();
         float preco = Float.parseFloat(txtPreco.getText());
         CadastroProdutoController.CadastrarProduto(descricao,preco);
+        
+        if (CadastroProdutoController.CadastrarProduto(descricao,preco)) {
+            JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso !");
+            dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro ao cadastrar produto");
+            dispose();
+        }
     }//GEN-LAST:event_btnConfirmActionPerformed
 
     /**
