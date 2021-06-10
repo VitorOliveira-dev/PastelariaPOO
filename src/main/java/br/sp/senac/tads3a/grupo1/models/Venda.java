@@ -12,11 +12,7 @@ private float valorTotal;
 private int clienteid; // foreignkey cliente
 private int funcionarioid; // foreignkey funcionario
 private int  produtoid; // foreignkey produto
-private FuncionarioComissao funcionarioComissao;
-private ArrayList<Pedido> listar;
-
-
- 
+private FuncionarioComissao funcionarioComissao; 
 
 public Venda(int vendaId, Date dataVenda, float valorTotal, int clienteid,int funcionarioid, int  produtoid,FuncionarioComissao funcionarioComissao){
     this.vendaId = vendaId;
@@ -85,16 +81,5 @@ public Venda(int vendaId, Date dataVenda, float valorTotal, int clienteid,int fu
     public void setFuncionarioComissao(FuncionarioComissao funcionarioComissao) {
         this.funcionarioComissao = funcionarioComissao;
     }
-
-    public ArrayList<Pedido> getListar() {
-        return listar;
-    }
-
-    public void setListar(ArrayList<Pedido> listar) {
-        this.listar = listar;
-    }
-
-
-
    
 }

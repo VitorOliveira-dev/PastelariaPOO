@@ -5,6 +5,13 @@
  */
 package br.sp.senac.tads3a.grupo1.views;
 
+import br.sp.senac.tads3a.grupo1.controllers.RelatorioController;
+import br.sp.senac.tads3a.grupo1.models.Funcionario;
+import br.sp.senac.tads3a.grupo1.models.FuncionarioAssalariado;
+import br.sp.senac.tads3a.grupo1.models.FuncionarioAssalariadoEComissao;
+import br.sp.senac.tads3a.grupo1.models.FuncionarioComissao;
+import java.util.ArrayList;
+
 /**
  *
  * @author PICHAU
@@ -16,6 +23,49 @@ public class RelatorioPagamentos extends javax.swing.JFrame {
      */
     public RelatorioPagamentos() {
         initComponents();
+
+        ArrayList<Funcionario> funcionarios = RelatorioController.relatorio();
+
+        for (Funcionario funcionario : funcionarios) {
+
+            if (funcionario instanceof FuncionarioAssalariado) {
+
+                FuncionarioAssalariado funcionarioA = (FuncionarioAssalariado) funcionario;
+
+                funcionarioA.getNome(); //Pega o nome
+                funcionarioA.getCPF(); //Pega o CPF
+                funcionarioA.getSalario(); //Pega o salário
+                funcionarioA.getCalculaGanhos(); //Calcula os ganhos
+                
+                System.out.println(funcionarioA.getNome()+" Corno Assalariado recebe "+funcionarioA.getCalculaGanhos());
+
+            } else if (funcionario instanceof FuncionarioComissao) {
+                
+                FuncionarioComissao funcionarioC = (FuncionarioComissao) funcionario;
+                funcionarioC.getNome(); //Pega o nome
+                funcionarioC.getCPF(); //Pega o CPF
+                funcionarioC.getComissao(); //Pega a comissão
+                funcionarioC.getCalculaGanhos(); //Calcula os ganhos
+                
+                System.out.println(funcionarioC.getNome()+" Corno Comissionado recebe "+funcionarioC.getCalculaGanhos());
+
+            } else {
+                
+                FuncionarioAssalariadoEComissao funcionarioAC = (FuncionarioAssalariadoEComissao) funcionario;
+                
+                funcionarioAC.getNome(); //Pega o nome
+                funcionarioAC.getCPF(); //Pega o CPF
+                funcionarioAC.getSalario(); //Pega o salário
+                funcionarioAC.getComissao(); //Pega a comissão
+                funcionarioAC.getCalculaGanhos(); //Calcula os ganhos
+                
+                System.out.println(funcionarioAC.getNome()+" Corno Assalariado e Comissionado recebe "+funcionarioAC.getCalculaGanhos());
+
+            }
+
+
+        }
+
     }
 
     /**

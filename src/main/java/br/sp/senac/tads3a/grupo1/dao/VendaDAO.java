@@ -8,7 +8,6 @@ package br.sp.senac.tads3a.grupo1.dao;
 import br.sp.senac.tads3a.grupo1.models.Cliente;
 import br.sp.senac.tads3a.grupo1.models.Funcionario;
 import br.sp.senac.tads3a.grupo1.models.FuncionarioComissao;
-import br.sp.senac.tads3a.grupo1.models.Pedido;
 import br.sp.senac.tads3a.grupo1.models.Produto;
 import br.sp.senac.tads3a.grupo1.models.Venda;
 import br.sp.senac.tads3a.grupo1.utils.Conexao;
