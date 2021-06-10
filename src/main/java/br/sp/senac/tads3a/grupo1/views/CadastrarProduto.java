@@ -58,7 +58,6 @@ public class CadastrarProduto extends javax.swing.JFrame {
         lblPrice.setFont(new java.awt.Font("Unispace", 0, 14)); // NOI18N
         lblPrice.setText("Preço");
 
-        txtPreco.setText("0");
         txtPreco.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         txtPreco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

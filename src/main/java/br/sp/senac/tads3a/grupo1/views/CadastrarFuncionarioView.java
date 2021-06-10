@@ -112,6 +112,7 @@ public class CadastrarFuncionarioView extends javax.swing.JFrame {
         lblSurname2.setFont(new java.awt.Font("Unispace", 0, 14)); // NOI18N
         lblSurname2.setText("Salário");
 
+        txtSalario.setText("0");
         txtSalario.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         txtSalario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
