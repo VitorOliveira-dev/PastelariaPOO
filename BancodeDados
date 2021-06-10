@@ -34,3 +34,9 @@ foreign key (funcionarioid) references funcionario (funcionarioid),
 foreign key (produtoid) references produto (produtoid),
 foreign key (clienteid) references cliente (clienteid)
 );
+
+
+///// Inserts para teste/////
+insert into cliente (nome, cpf) values ("amarildo", "1245");
+insert into  funcionario (nome,cpf,salario, comissao, departamento) values ("vendedor",  "1233", 10,0,  "venda");
+insert into produto (descricao,preco) values ("pastel",10);
