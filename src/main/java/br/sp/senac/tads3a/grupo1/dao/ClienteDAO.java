@@ -24,7 +24,7 @@ public class ClienteDAO {
         PreparedStatement instrucaoSQL = null;
 
         try {
-
+            System.out.println("entrou");
             conexao = Conexao.abrirConexao();
             instrucaoSQL = conexao.prepareStatement("INSERT INTO Cliente (nome, cpf) VALUES(?,?)");
 
@@ -34,6 +34,7 @@ public class ClienteDAO {
             int linhasAfetadas = instrucaoSQL.executeUpdate();
 
             if (linhasAfetadas > 0) {
+                System.out.println("cadastrado com sucesso");
                 retorno = true;
 
             } else {

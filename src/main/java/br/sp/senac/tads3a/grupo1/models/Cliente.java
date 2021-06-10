@@ -10,6 +10,10 @@ public class Cliente extends Pessoa {
         this.clienteId = clienteId;
     }
 
+    public Cliente() {
+   
+    }
+
     public int getClienteId() {
         return clienteId;
     }
