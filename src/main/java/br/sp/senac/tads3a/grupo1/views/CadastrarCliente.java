@@ -64,6 +64,11 @@ public class CadastrarCliente extends javax.swing.JFrame {
                 txtCPFActionPerformed(evt);
             }
         });
+        txtCPF.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCPFKeyTyped(evt);
+            }
+        });
 
         pnlTtitle.setBackground(new java.awt.Color(255, 255, 153));
 
@@ -181,6 +186,12 @@ public class CadastrarCliente extends javax.swing.JFrame {
             dispose();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtCPFKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCPFKeyTyped
+        if (txtCPF.getText().length() > 10) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtCPFKeyTyped
 
     /**
      * @param args the command line arguments
