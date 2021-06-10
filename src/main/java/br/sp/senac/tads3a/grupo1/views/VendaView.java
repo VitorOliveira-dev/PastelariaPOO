@@ -59,7 +59,7 @@ public class VendaView extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jcbFuncionario = new javax.swing.JComboBox<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 

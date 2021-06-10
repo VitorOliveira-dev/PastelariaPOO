@@ -6,6 +6,7 @@
 package br.sp.senac.tads3a.grupo1.views;
 
 import br.sp.senac.tads3a.grupo1.controllers.CadastrarFuncionarioController;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -44,7 +45,7 @@ public class CadastrarFuncionarioView extends javax.swing.JFrame {
         jcbDep = new javax.swing.JComboBox<>();
         lblSurname3 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         pnlMain.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -215,7 +216,14 @@ public class CadastrarFuncionarioView extends javax.swing.JFrame {
         String cpf = txtCPF.getText();
         float salario = Float.parseFloat(txtSalario.getText());
         String departamento = jcbDep.getSelectedItem().toString();
-        CadastrarFuncionarioController.CadastrarFuncionario(nomeF,cpf,salario,departamento);
+        
+         if (CadastrarFuncionarioController.CadastrarFuncionario(nomeF,cpf,salario,departamento)) {
+            JOptionPane.showMessageDialog(null, "Funcionário cadastrado com sucesso !");
+            dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro ao cadastrar funcionário");
+            dispose();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txtSalarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSalarioActionPerformed

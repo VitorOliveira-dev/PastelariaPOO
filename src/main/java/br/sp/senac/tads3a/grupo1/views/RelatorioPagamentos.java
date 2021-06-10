@@ -27,9 +27,9 @@ public class RelatorioPagamentos extends javax.swing.JFrame {
 
         ArrayList<Funcionario> funcionarios = RelatorioController.relatorio();
         String tabela[] = new String[5];
-        for (Funcionario funcionario : funcionarios) {
-         DefaultTableModel modelo = new DefaultTableModel();
+        DefaultTableModel modelo = new DefaultTableModel();
          modelo = (DefaultTableModel) jTable1.getModel();
+        for (Funcionario funcionario : funcionarios) {
             if (funcionario instanceof FuncionarioAssalariado) {
 
                 FuncionarioAssalariado funcionarioA = (FuncionarioAssalariado) funcionario;
@@ -44,19 +44,7 @@ public class RelatorioPagamentos extends javax.swing.JFrame {
         
                 System.out.println(funcionarioA.getNome()+" Corno Assalariado recebe "+funcionarioA.getCalculaGanhos());
 
-            } else if (funcionario instanceof FuncionarioComissao) {
-                
-                FuncionarioComissao funcionarioC = (FuncionarioComissao) funcionario;
-                tabela[0] = funcionarioC.getNome(); //Pega o nome
-                tabela[1] = funcionarioC.getCPF(); //Pega o CPF
-                tabela[2] = "0";
-                tabela[3] = String.valueOf(funcionarioC.getComissao()); //Pega a comissão
-                tabela[4] = String.valueOf(funcionarioC.getCalculaGanhos()); //Calcula os ganhos
-                modelo.addRow(tabela);
-                System.out.println(funcionarioC.getNome()+" Corno Comissionado recebe "+funcionarioC.getCalculaGanhos());
-
-            } else {
-                
+            } else if (funcionario instanceof FuncionarioAssalariadoEComissao) {
                 FuncionarioAssalariadoEComissao funcionarioAC = (FuncionarioAssalariadoEComissao) funcionario;
                 
                 tabela[0] = funcionarioAC.getNome(); //Pega o nome
@@ -66,11 +54,19 @@ public class RelatorioPagamentos extends javax.swing.JFrame {
                 tabela[4] = String.valueOf(funcionarioAC.getCalculaGanhos()); //Calcula os ganhos
                 
                 modelo.addRow(tabela);
-            
-                 
-            
+                System.out.println(funcionarioAC.getNome()+" Corno Assalariado e Comissionado recebe "+funcionarioAC.getSalario());
+
+            } else {
                 
-                System.out.println(funcionarioAC.getNome()+" Corno Assalariado e Comissionado recebe "+funcionarioAC.getCalculaGanhos());
+                FuncionarioComissao funcionarioC = (FuncionarioComissao) funcionario;
+                tabela[0] = funcionarioC.getNome(); //Pega o nome
+                tabela[1] = funcionarioC.getCPF(); //Pega o CPF
+                tabela[2] = "0";
+                tabela[3] = String.valueOf(funcionarioC.getComissao()); //Pega a comissão
+                tabela[4] = String.valueOf(funcionarioC.getCalculaGanhos()); //Calcula os ganhos
+                modelo.addRow(tabela);
+                System.out.println(funcionarioC.getNome()+" Corno Comissionado recebe "+funcionarioC.getComissao());
+            
 
             }
 
@@ -94,7 +90,7 @@ public class RelatorioPagamentos extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -129,9 +125,16 @@ public class RelatorioPagamentos extends javax.swing.JFrame {
                 "Nome", "CPF", "Salário Fixo", "Comissão", "Total"
             }
         ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false
             };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];

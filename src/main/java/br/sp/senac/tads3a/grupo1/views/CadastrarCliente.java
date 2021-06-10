@@ -6,6 +6,7 @@
 package br.sp.senac.tads3a.grupo1.views;
 
 import br.sp.senac.tads3a.grupo1.controllers.CadastroCliController;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -40,7 +41,7 @@ public class CadastrarCliente extends javax.swing.JFrame {
         lblTitle = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         pnlMain.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -171,6 +172,14 @@ public class CadastrarCliente extends javax.swing.JFrame {
         String nomecli = txtName.getText();
         String cpfcli= txtCPF.getText();
         CadastroCliController.Cadastrar(nomecli, cpfcli);
+        
+         if (CadastroCliController.Cadastrar(nomecli, cpfcli)) {
+            JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso !");
+            dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro ao cadastrar cliente");
+            dispose();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
