@@ -11,6 +11,7 @@ import br.sp.senac.tads3a.grupo1.models.FuncionarioAssalariado;
 import br.sp.senac.tads3a.grupo1.models.FuncionarioAssalariadoEComissao;
 import br.sp.senac.tads3a.grupo1.models.FuncionarioComissao;
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -25,39 +26,49 @@ public class RelatorioPagamentos extends javax.swing.JFrame {
         initComponents();
 
         ArrayList<Funcionario> funcionarios = RelatorioController.relatorio();
-
+        String tabela[] = new String[5];
         for (Funcionario funcionario : funcionarios) {
-
+         DefaultTableModel modelo = new DefaultTableModel();
+         modelo = (DefaultTableModel) jTable1.getModel();
             if (funcionario instanceof FuncionarioAssalariado) {
 
                 FuncionarioAssalariado funcionarioA = (FuncionarioAssalariado) funcionario;
 
-                funcionarioA.getNome(); //Pega o nome
-                funcionarioA.getCPF(); //Pega o CPF
-                funcionarioA.getSalario(); //Pega o salário
-                funcionarioA.getCalculaGanhos(); //Calcula os ganhos
+                tabela[0] = funcionarioA.getNome(); //Pega o nome
+                tabela[1] = funcionarioA.getCPF(); //Pega o CPF
+                tabela[2] = String.valueOf(funcionarioA.getSalario()); //Pega o salário
+                tabela[3] = "0";
+                tabela[4] = String.valueOf(funcionarioA.getCalculaGanhos()); //Calcula os ganhos
+                modelo.addRow(tabela);
                 
+        
                 System.out.println(funcionarioA.getNome()+" Corno Assalariado recebe "+funcionarioA.getCalculaGanhos());
 
             } else if (funcionario instanceof FuncionarioComissao) {
                 
                 FuncionarioComissao funcionarioC = (FuncionarioComissao) funcionario;
-                funcionarioC.getNome(); //Pega o nome
-                funcionarioC.getCPF(); //Pega o CPF
-                funcionarioC.getComissao(); //Pega a comissão
-                funcionarioC.getCalculaGanhos(); //Calcula os ganhos
-                
+                tabela[0] = funcionarioC.getNome(); //Pega o nome
+                tabela[1] = funcionarioC.getCPF(); //Pega o CPF
+                tabela[2] = "0";
+                tabela[3] = String.valueOf(funcionarioC.getComissao()); //Pega a comissão
+                tabela[4] = String.valueOf(funcionarioC.getCalculaGanhos()); //Calcula os ganhos
+                modelo.addRow(tabela);
                 System.out.println(funcionarioC.getNome()+" Corno Comissionado recebe "+funcionarioC.getCalculaGanhos());
 
             } else {
                 
                 FuncionarioAssalariadoEComissao funcionarioAC = (FuncionarioAssalariadoEComissao) funcionario;
                 
-                funcionarioAC.getNome(); //Pega o nome
-                funcionarioAC.getCPF(); //Pega o CPF
-                funcionarioAC.getSalario(); //Pega o salário
-                funcionarioAC.getComissao(); //Pega a comissão
-                funcionarioAC.getCalculaGanhos(); //Calcula os ganhos
+                tabela[0] = funcionarioAC.getNome(); //Pega o nome
+                tabela[1] = funcionarioAC.getCPF(); //Pega o CPF
+                tabela[2] = String.valueOf(funcionarioAC.getSalario()); //Pega o salário
+                tabela[3] = String.valueOf(funcionarioAC.getComissao()); //Pega a comissão
+                tabela[4] = String.valueOf(funcionarioAC.getCalculaGanhos()); //Calcula os ganhos
+                
+                modelo.addRow(tabela);
+            
+                 
+            
                 
                 System.out.println(funcionarioAC.getNome()+" Corno Assalariado e Comissionado recebe "+funcionarioAC.getCalculaGanhos());
 
@@ -115,11 +126,11 @@ public class RelatorioPagamentos extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nome", "Salário Fixo", "Comissão", "Total"
+                "Nome", "CPF", "Salário Fixo", "Comissão", "Total"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
