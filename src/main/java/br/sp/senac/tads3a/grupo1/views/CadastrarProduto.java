@@ -58,6 +58,7 @@ public class CadastrarProduto extends javax.swing.JFrame {
         lblPrice.setFont(new java.awt.Font("Unispace", 0, 14)); // NOI18N
         lblPrice.setText("Preço");
 
+        txtPreco.setText("0");
         txtPreco.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         txtPreco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -172,7 +173,6 @@ public class CadastrarProduto extends javax.swing.JFrame {
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         String descricao = txtProduto.getText();
         float preco = Float.parseFloat(txtPreco.getText());
-        CadastroProdutoController.CadastrarProduto(descricao,preco);
         
         if (CadastroProdutoController.CadastrarProduto(descricao,preco)) {
             JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso !");

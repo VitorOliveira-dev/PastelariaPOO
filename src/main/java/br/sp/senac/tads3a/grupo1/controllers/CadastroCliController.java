@@ -18,9 +18,6 @@ public class CadastroCliController {
         cliente.setNome(nomecli);
         cliente.setCPF(cpfcli);
         
-        
-        
-        
       return ClienteDAO.salvarCliente(cliente);
     }
 }

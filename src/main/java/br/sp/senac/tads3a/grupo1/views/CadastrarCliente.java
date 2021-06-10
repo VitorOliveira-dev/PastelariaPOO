@@ -176,7 +176,6 @@ public class CadastrarCliente extends javax.swing.JFrame {
        
         String nomecli = txtName.getText();
         String cpfcli= txtCPF.getText();
-        CadastroCliController.Cadastrar(nomecli, cpfcli);
         
          if (CadastroCliController.Cadastrar(nomecli, cpfcli)) {
             JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso !");
