@@ -11,6 +11,10 @@ public class FuncionarioAssalariado extends Funcionario {
         this.salario = salario;
     }
 
+    public FuncionarioAssalariado() {
+      
+    }
+
     public float getSalario() {
         return salario;
     }
